@@ -1,5 +1,6 @@
 package paquetepiedeaemet;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import paquetepiedeaemet.Clima;
@@ -26,6 +27,24 @@ public class EntradaSalida {
 		String[] campos=fecha.split("-");
 		String fecha_formateada=campos[2]+"/"+campos[1]+"/"+campos[0];
 		return fecha_formateada;
+	}
+	public static int mostrarMenu(ArrayList<Provincia> lista_provincias) {
+		Scanner sc=new Scanner(System.in);
+		for (Provincia provincia : lista_provincias) {
+			System.out.println(provincia.getId_provincia()+"-"+provincia.getNombre());
+		}
+		int opcion=sc.nextInt();sc.nextLine();
+		return opcion;
+	}
+	public static int mostrarMunicipios(ArrayList<Municipio> lista_municipios) {
+		Scanner sc=new Scanner(System.in);
+		for (int i=0; i<lista_municipios.size(); i++)
+		{
+			System.out.println(lista_municipios.get(i).getCod_municipio()+"-"+lista_municipios.get(i).getNombre());
+		}
+		int opcion=sc.nextInt();sc.nextLine();
+		return opcion;
+		
 	}
 
 }
